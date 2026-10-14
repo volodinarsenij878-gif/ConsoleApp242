@@ -1,0 +1,45 @@
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    namespace Program83
+    {
+    internal class Program
+    {
+        static void Main()
+        {
+            Console.Write("Введите вес посылки (кг): ");
+            if (decimal.TryParse(Console.ReadLine(), out decimal weight) && weight >= 0)
+            {
+                string category;
+
+                if (weight < 2)
+                {
+                    category = "мелкий пакет";
+                }
+                else if (weight < 10.1m)
+                {
+                    // сюда попадают значения от 2 до 10.099...
+                    category = "стандартная";
+                }
+                else if (weight <= 31.5m)
+                {
+                    // от 10.1 до 31.5 включительно
+                    category = "тяжеловесная";
+                }
+                else
+                {
+                    category = "крупногабарит";
+                }
+
+                Console.WriteLine($"Категория: {category}");
+            }
+            else
+            {
+                Console.WriteLine("Ошибка: введите неотрицательное число.");
+            }
+        }
+    }
+    }
